@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'layout/header.html' %}
+<div class="section-content">
+    <div class="">
+        <h1>Parrilleros</h1>
+    </div>
+
+
+    <div class="row">
+        <div>
+
+            <body>
+
+                <form id="citaForm">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" name="fecha" required>
+
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" name="hora" required>
+
+                    <!-- Nuevos campos para candidatos -->
+                    <label for="perfil">Perfil:</label>
+                    <textarea id="perfil" name="perfil" rows="4" required></textarea>
+
+                    <label for="curriculum">Currículum (adjuntar archivo):</label>
+                    <input type="file" id="curriculum" name="curriculum" accept=".pdf, .doc, .docx">
+
+                    <button type="button" onclick="agendarCita()">Agendar Cita</button>
+                </form>
+
+                <script>
+                    function agendarCita() {
+                        // Aquí puedes agregar la lógica para procesar la cita para candidatos.
+                        // Puedes acceder a los valores de los campos utilizando el DOM.
+                        var nombre = document.getElementById('nombre').value;
+                        var fecha = document.getElementById('fecha').value;
+                        var hora = document.getElementById('hora').value;
+                        var perfil = document.getElementById('perfil').value;
+                        var curriculum = document.getElementById('curriculum').value;
+
+                        // Realizar operaciones adicionales, como enviar datos al servidor o mostrar mensajes.
+                        alert('Cita agendada con éxito para ' + nombre);
+                    }
+                </script>
+
+                </body< !-- aquí va tu código -->
+        </div>
+    </div>
+
+</div>
+<div class="footer">
+    <div class="footer-content">
+        <p class="copyright">
+            <span>© 2023 <a class="link" href="/">ParriYa.com</a>, Inc. o sus afiliados</span>
+        </p>
+    </div>
+</div>
+
+{% endblock %}

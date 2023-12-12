@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'formulario.css' %}">
+    <title>DISPO PARRILLERO</title>
+    <nav>
+        <ul>
+            <li><a href="{% url 'inicio' %}">Inicio</a></li>
+        </ul>
+    </nav>
+</head>
+
+<body>
+    <div class="content">
+        <div class="login-box">
+            <h1>Agregar Disponibilidad</h1>
+            <form method="POST" id="formpost">
+                {% csrf_token %}
+
+                <label for="nombre">Nombre Parrillero:</label>
+                <input type="text" name="nombre" required>
+
+                <label for="fechaDispo">Fecha Disponible:</label>
+                <input type="date" name="fechaDispo" required>
+
+                <label for="horario">Horario:</label>
+                <select name="horario" required>
+                    <option value="manana">Mañana (09:00 - 13:59)</option>
+                    <option value="tarde">Tarde (14:00 - 18:59)</option>
+                    <option value="noche">Noche (19:00 - 01:59)</option>
+                </select>
+
+                <label for="estado">Estado:</label>
+                <select name="estado" required>
+                    <option value="disponible">Disponible</option>
+                    <option value="ocupado">Ocupado</option>
+
+                </select>
+
+                <button class="btn btn-send" type="submit" title="enviar">Enviar</button>
+            </form>
+        </div>
+
+    <div class="footer">
+        <div class="footer-content">
+            <p class="copyright">
+                <span>© 2023 <a class="link" href="/">ParriYa.com</a>, Inc. o sus afiliados</span>
+            </p>
+        </div>
+    </div>
+
+</body>

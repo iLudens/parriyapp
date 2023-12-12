@@ -1,0 +1,39 @@
+{% load static %}
+<div class="header">
+    <div class="header-announciament">
+        <h2 class="title">Busca lo que necesites</h2>
+    </div>
+
+    <div class="header-content">
+
+        <div class="header-logo">
+            <div class="logo-container">
+                <img class="logo" src="{% static 'imagenes/logo.png' %}" alt="" />
+            </div>
+        </div>
+
+        <ul class="header-nav">
+            <li class="header-item">
+                <a class="item-link" href="{% url 'inicio' %}">INICIO</a>
+            </li>
+            <li class="header-item">
+                <a class="item-link" href="{% url 'nosotros' %}">NOSOTROS</a>
+            </li>
+            <li class="header-item">
+                <a class="item-link" href="{% url 'servicios' %}">SERVICIOS</a>
+            </li>
+            <li class="header-item">
+                <a class="item-link" href="{% url 'recetas' %}">RECETAS</a>
+            </li>
+            <li class="header-item">
+                <a class="item-link" href="{% url 'parrilleros' %}">PARRILLEROS</a>
+            </li>
+            <li class="header-item">
+                <a class="item-link" href="{% url 'disponibilidad' %}">DISPONIBILIDAD</a>
+            </li>
+            <li class="header-item">
+                <a class="item-link" href="{% url 'contactos' %}">CONTACTOS</a>
+            </li>
+        </ul>
+    </div>
+</div>

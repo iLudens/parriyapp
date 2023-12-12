@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+{% include 'layout/header.html' %}
+<section class="cuerpo content">
+    <img class="slider" src="{% static 'imagenes/cabecera.jpg' %}" alt="">
+    <div class=" container">
+        <div class="row">
+            <div class="col-12">
+                <div class="content-title">
+                    <h3 class="title">SERVICIOS</h3>
+                    <span class="border"><span>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-3 col-md-6">
+                <div class="card">
+                    <img src="{% static 'imagenes/icono-1.png' %}" alt="">
+                    <p>Alquiler</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-3 col-md-6">
+                <div class="card">
+                    <img src="{% static 'imagenes/icono-2.png' %}" alt="">
+                    <p>Prestamo</p>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-lg-3 col-md-6">
+                <div class="card">
+                    <img src="{% static 'imagenes/icono-3.png' %}" alt="">
+                    <p>Flete</p>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-lg-3 col-md-6">
+                <div class="card">
+                    <img src="{% static 'imagenes/icono-4.png' %}" alt="">
+                    <p>Venta</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <article class="bienvenida">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et itaque ea culpa, neque vitae iusto
+            magni
+            molestias eveniet! Iusto distinctio nesciunt delectus natus porro dolorem velit aut ex sint
+            rerum!</p>
+    </article>
+
+    <article class="parallax">
+        <a href="contactos.html">CONTACTENOS</a>
+    </article>
+
+    <article class="publicidad">
+        <img src="{% static  'imagenes/publicidad2.jpg' %}" alt="">
+    </article>
+
+
+
+</section>
+
+{% endblock %}

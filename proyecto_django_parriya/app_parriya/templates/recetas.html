@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'layout/header.html' %}
+
+<div class="modal fade" id="modalAgregarReceta" tabindex="-1" role="dialog" aria-labelledby="modalAgregarRecetaLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAgregarRecetaLabel">Agregar Receta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <button type="submit" class="btn btn-sm btn-primary">Enviar</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="section-content">
+    <div class="container py-4">
+        <div class="row gx-3 gy-4">
+
+            <div class="col-12">
+                <div class=" d-flex justify-content-between">
+                    <h1>Recetas</h1>
+                    <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
+                        data-bs-target="#modalAgregarReceta">Agregar Receta</button>
+                </div>
+            </div>
+
+            {% for item in data_recetas %}
+            <div class="col-12 col-lg-3 col-md-6">
+                <img src="{{ item.re_image.url }}" class="card-img-top"
+                    style="width: 100%; height: 200px; object-fit: cover;" alt="Image">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.re_title }}</h5>
+                        <ul>
+                            <li><b>Personas: </b> {{ item.re_total_group }}</li>
+                            <li><b>Minutos: </b> {{ item.re_minutes }}</li>
+
+                            {% if item.re_difficulty == 0 %}
+                            <li><b>Dificultad: </b> Muy fácil</li>
+                            {% elif item.re_difficulty == 1 %}
+                            <li><b>Dificultad: </b>Fácil</li>
+                            {% elif item.re_difficulty == 2 %}
+                            <li><b>Dificultad: </b> Intermedio</li>
+                            {% elif item.re_difficulty == 3 %}
+                            <li><b>Dificultad: </b> Difícil</li>
+                            {% elif item.re_difficulty == 4 %}
+                            <li><b>Dificultad: </b> Muy Difícil</li>
+                            {% endif %}
+                        </ul>
+                        {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+            {% comment %}
+            <div>
+
+                <div class="recipe-card">
+
+                    <aside>
+
+                        <img src="{% static 'imagenes/pollo.jpg' %}" alt="" />
+
+                        <a href="#" class="button"><span class="icon icon-play"></span></a>
+
+                    </aside>
+
+                    <article>
+
+                        <h2>Pollo a la parrilla</h2>
+                        <h3>Almuerzo</h3>
+
+                        <ul>
+                            <li><span class="icon icon-users"></span><span>1</span></li>
+                            <li><span class="icon icon-clock"></span><span>45 min</span></li>
+                            <li><span class="icon icon-level"></span><span>Dificultad</span></li>
+                            <li><span class="icon icon-calories"></span><span>560</span></li>
+                        </ul>
+
+                        <p>#tipo de plato</p>
+
+                        <p class="ingredients"><span>Ingredientes:&nbsp;</span>#ingredientes</p>
+
+                    </article>
+
+                </div>
+                <!-- aquí va tu código -->
+            </div> {% endcomment %}
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="footer-content">
+            <p class="copyright">
+                <span>© 2023 <a class="link" href="/">ParriYa.com</a>, Inc. o sus afiliados</span>
+            </p>
+        </div>
+    </div>
+
+    {% endblock %}

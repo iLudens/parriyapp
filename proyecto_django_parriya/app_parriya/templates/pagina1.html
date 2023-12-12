@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recuperar contraseña</title>
+    <link rel="stylesheet" href="{% static 'contra.css' %}">
+</head>
+
+<body>
+    <section class="form-register">
+        <h4>Recuperar contraseña</h4>
+        <form>
+            <input type="email" name="correoRecuperacion" placeholder="Correo Electrónico" required>
+            <input type="password" name="contraseñaRecuperacion" placeholder="Ingresar contraseña nueva" required>
+            <input type="password" name="contraseñaRecuperacion" placeholder="Ingresar nuevamente contraseña" required>
+        </form>
+        <input type="submit" value="Recuperar Contraseña">
+        <p><a href="/" onclick="hideForgotPassword()">Volver al inicio de sesión</a></p>
+
+    </section>
+
+</body>
+
+</html>

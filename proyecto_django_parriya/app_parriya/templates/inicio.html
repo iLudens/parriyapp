@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Inicio de Sesion</title>
+    <link rel="stylesheet" href="static/master.css">
+</head>
+
+<body>
+
+    <div class="login-box">
+        <img src="static/imagenes/logo.png" class="avatar" alt="Avatar Image">
+        <h1>Ingresa Aqui</h1>
+        <form class="" method="POST" enctype="application/x-www-form-urlencoded">
+            {% csrf_token %}
+            <!-- USERNAME INPUT -->
+            <label for="username">Nombre</label>
+            <input type="text" name="username" placeholder="Ingresa Tu Nombre">
+            <!-- PASSWORD INPUT -->
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" placeholder="Ingresa La Contraseña">
+            <button type="submit" value="Ingresar">Ingresar</button>
+            <a href="pagina1">¿Olvidaste tu contraseña?</a><br>
+            <a href="formulario">¿No tienes una cuenta?</a>
+        </form>
+    </div>
+</body>
+
+</html>
