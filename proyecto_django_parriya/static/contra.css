@@ -1,0 +1,74 @@
+/* Reset de estilos para el cuerpo de la página */
+body {
+    margin: 0;
+    padding: 0;
+    background: url(../static/imagenes/parrilla.jpg) no-repeat center top;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+/* Estilos para el formulario de recuperación de contraseña */
+.form-register {
+    width: 320px;
+    background: #000;
+    color: #fff;
+    margin: 0 auto;
+    /* Centra el formulario horizontalmente */
+    margin-top: 50px;
+    padding: 20px 30px;
+    /* Ajusta el espacio interior */
+    box-sizing: border-box;
+    border-radius: 8px;
+    transform: translate(0, 45%);
+}
+
+.form-register h4 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+/* Estilos para los campos de entrada */
+.form-register input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    /* Color de fondo con transparencia */
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* Estilos para el botón de recuperar contraseña */
+.form-register input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #b80f22;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.form-register input[type="submit"]:hover {
+    background: #ffc107;
+    color: #000;
+}
+
+/* Estilos para el enlace de volver al inicio de sesión */
+.form-register a {
+    text-decoration: none;
+    color: darkgrey;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.form-register a:hover {
+    color: #fff;
+}

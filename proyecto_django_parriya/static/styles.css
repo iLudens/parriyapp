@@ -1,0 +1,492 @@
+/* Reset de estilos para el cuerpo de la página */
+/* body {
+    margin: 0;
+    padding: 0;
+    background: url(../static/imagenes/parrilla.jpg) no-repeat center top;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+} */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    margin: 0;
+    padding: 0;
+    background: url(../static/imagenes/parrilla.jpg) no-repeat center top;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+/* Estilos para el formulario de recuperación de contraseña */
+.form-register {
+    width: 320px;
+    background: #000;
+    color: #fff;
+    margin: 0 auto;
+    /* Centra el formulario horizontalmente */
+    margin-top: 50px;
+    padding: 20px 30px;
+    /* Ajusta el espacio interior */
+    box-sizing: border-box;
+    border-radius: 8px;
+    transform: translate(0, 45%);
+}
+
+.form-register h4 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+/* Estilos para los campos de entrada */
+.form-register input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    /* Color de fondo con transparencia */
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* Estilos para el botón de recuperar contraseña */
+.form-register input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #b80f22;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.form-register input[type="submit"]:hover {
+    background: #ffc107;
+    color: #000;
+}
+
+/* Estilos para el enlace de volver al inicio de sesión */
+.form-register a {
+    text-decoration: none;
+    color: darkgrey;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.form-register a:hover {
+    color: #fff;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+nav {
+    display: block;
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #333;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+}
+
+nav a {
+    display: block;
+    padding: 14px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    width: 100%;
+    margin-top: 3rem;
+}
+
+.content .login-box {
+    width: 320px;
+    display: block;
+    height: auto;
+    background: #000;
+    color: #fff;
+    position: relative;
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 10px;
+}
+
+.login-box h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.login-box label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.login-box input,
+.login-box select {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.login-box input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #b80f22;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.login-box input[type="submit"]:hover {
+    background: #ffc107;
+    color: #000;
+}
+
+.login-box a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.login-box a:hover {
+    color: #fff;
+}
+
+.login-box input[type="password"],
+.login-box input[type="email"],
+.login-box input[type="text"],
+.login-box input[type="number"],
+.login-box input[type="date"],
+.login-box select {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+
+p,
+a,
+li,
+h1,
+h3 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/* ESTA ES LA CABECERA*/
+.cabecera {
+    overflow: hidden;
+    background: #dddddd;
+}
+
+.cabecera img {
+    display: block;
+    margin: auto;
+}
+
+.cabecera h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #F69F2C;
+}
+
+.cabecera h3 {
+    font-size: 25px;
+    text-align: center;
+    color: dodgerblue;
+}
+
+
+/* AQUI COMIENZA EL MENU*/
+
+.menu {
+    background: #333;
+    overflow: hidden;
+}
+
+.menu ul li {
+    list-style: none;
+    display: flex;
+}
+
+.menu ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.menu ul li a:hover {
+    color: #F69F2C;
+}
+
+/* AQUI COMIENZA EL CUERPO */
+.slider {
+    width: 100%;
+}
+
+.iconos {
+    overflow: hidden;
+    margin: 20px 0px;
+}
+
+.iconos h3 {
+    text-align: center;
+    color: #444444;
+    font-size: 26px;
+}
+
+.iconos div {
+    width: 24%;
+    float: left;
+    overflow: hidden;
+}
+
+.iconos div img {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+.iconos div p {
+    text-align: center;
+    color: cornflowerblue;
+}
+
+.bienvenida {
+    background: #999;
+    padding: 20px;
+
+}
+
+.bienvenida p {
+    text-align: center;
+    color: #ffffff;
+    margin: 20px 30px;
+}
+
+
+.parallax {
+    width: 100%;
+    height: 150px;
+    background: url(imag/fondo.avif);
+    background-size: 200%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.parallax a {
+    display: block;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    text-decoration: none;
+    background: #000000;
+    color: #ffffff;
+    margin: 50px auto 50px auto;
+    transition: 1s;
+}
+
+.parallax a:hover {
+    background: orange;
+    color: #000000;
+}
+
+
+.publicidad {
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.publicidad img {
+    width: 100%;
+}
+
+
+/* PIE DE PAGINA */
+.piedepagina {
+    background: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header-announciament {
+    color: #fff;
+    width: 100%;
+    display: block;
+    background: #000;
+    padding: .5rem 0;
+    text-align: center;
+    font-size: 8rem;
+}
+
+.header-announciament .title {
+    font-size: 1rem;
+}
+
+
+.header-logo {
+    display: block;
+    position: relative;
+}
+
+.logo-container {
+    display: flex;
+    position: relative;
+}
+
+.logo-container .logo {
+    width: auto;
+    height: 5rem
+}
+
+.header-content {
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.header-nav {
+    display: flex;
+    position: relative;
+    list-style: none;
+}
+
+.header-nav>.header-item {
+    margin: 0 1rem;
+}
+
+.header-nav>.header-item .item-link {
+    color: #000;
+    transition: .3s all ease-out;
+    text-decoration: none;
+    font-size: .8rem;
+}
+
+.header-item .item-link:hover {
+    color: rgb(134, 10, 187);
+}
+
+.section-content {
+    display: block;
+    position: relative;
+
+}
+
+.footer {
+    display: block;
+    width: 100%;
+    position: relative;
+    background: #000;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.footer-content .copyright {
+    margin: 0;
+}
+
+.footer-content .link {
+    color: rgb(209, 218, 35)
+}
+
+.content .content-title {
+    padding: 1rem 0;
+}
+
+.content .content-title .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.content .content-title .border {
+    height: .1rem;
+    width: 100%;
+    content: "";
+    display: block;
+    background: rgb(137, 26, 202);
+    color: rgb(137, 26, 202);
+}
+
+.card {
+    box-shadow: 1rem 1rem 1rem rgba(142, 142, 142, 0.149);
+    border: none;
+}

@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+
+p,
+a,
+li,
+h1,
+h3 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+/* ESTA ES LA CABECERA*/
+.cabecera {
+    overflow: hidden;
+    background: #dddddd;
+}
+
+.cabecera img {
+    display: block;
+    margin: auto;
+}
+
+.cabecera h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #F69F2C;
+}
+
+.cabecera h3 {
+    font-size: 25px;
+    text-align: center;
+    color: dodgerblue;
+}
+
+
+/* AQUI COMIENZA EL MENU*/
+
+.menu {
+    background: #333;
+    overflow: hidden;
+}
+
+.menu ul li {
+    list-style: none;
+    display: inline;
+}
+
+.menu ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.menu ul li a:hover {
+    color: #F69F2C;
+}
+
+/* AQUI COMIENZA EL CUERPO */
+.slider {
+    width: 100%;
+}
+
+.iconos {
+    overflow: hidden;
+    margin: 20px 0px;
+}
+
+.iconos h3 {
+    text-align: center;
+    color: #444444;
+    font-size: 26px;
+}
+
+.iconos div {
+    width: 24%;
+    float: left;
+    overflow: hidden;
+}
+
+.iconos div img {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+.iconos div p {
+    text-align: center;
+    color: cornflowerblue;
+}
+
+.bienvenida {
+    background: #999;
+    padding: 20px;
+
+}
+
+.bienvenida p {
+    text-align: center;
+    color: #ffffff;
+    margin: 20px 30px;
+}
+
+
+.parallax {
+    width: 100%;
+    height: 150px;
+    background: url(imag/fondo.avif);
+    background-size: 200%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.parallax a {
+    display: block;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    text-decoration: none;
+    background: #000000;
+    color: #ffffff;
+    margin: 50px auto 50px auto;
+    transition: 1s;
+}
+
+.parallax a:hover {
+    background: orange;
+    color: #000000;
+}
+
+
+.publicidad {
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.publicidad img {
+    width: 100%;
+}
+
+
+/* PIE DE PAGINA */
+.piedepagina {
+    background: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px;
+    font-size: 14px;
+}
+
+
