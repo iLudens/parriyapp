@@ -12,17 +12,82 @@
 </head>
 
 <body>
+
+    <div>
+        {% for item in users %}
+        <p class="" style="color: white;">{{ item }}</p>
+        {% endfor %}
+    </div>
+
     <section class="form-register">
         <h4>Recuperar contraseña</h4>
-        <form>
+        <form id="formChangePassword">
+            <div class="" id="boxMessage">
+
+            </div>
             <input type="email" name="correoRecuperacion" placeholder="Correo Electrónico" required>
-            <input type="password" name="contraseñaRecuperacion" placeholder="Ingresar contraseña nueva" required>
-            <input type="password" name="contraseñaRecuperacion" placeholder="Ingresar nuevamente contraseña" required>
+            <input type="password" name="contrasenaRecuperacion" placeholder="Ingresar contrasena nueva" required>
+            <input type="password" name="ConfirmarcontrasenaRecuperacion" placeholder="Ingresar nuevamente contrasena"
+                required>
+            {% csrf_token %}
         </form>
-        <input type="submit" value="Recuperar Contraseña">
+        <button type="button" id="submitButton" onclick="sendData()" disabled>Cambiar Contrasena</button>
         <p><a href="/" onclick="hideForgotPassword()">Volver al inicio de sesión</a></p>
 
     </section>
+
+
+    <script>
+        let btn = document.querySelector('#submitButton');
+        let newpassword = document.querySelector('input[name="contrasenaRecuperacion"]');
+        let confirmpassword = document.querySelector('input[name="ConfirmarcontrasenaRecuperacion"]');
+        let boxMessage = document.querySelector('#boxMessage'); // Mover fuera de la función para optimizar
+
+        function validate_password() {
+            let pass1 = newpassword.value;
+            let pass2 = confirmpassword.value;
+
+            if (pass1 !== pass2) {
+                boxMessage.innerHTML = "Las contraseñas no coinciden";
+                btn.disabled = true;
+                return false;
+            } else {
+                boxMessage.innerHTML = "";
+                btn.disabled = false;
+            }
+        }
+
+        newpassword.addEventListener('input', validate_password);
+        confirmpassword.addEventListener('input', validate_password);
+
+
+        function sendData() {
+            let formData = new FormData();
+            formData.append('correoRecuperacion', document.querySelector('input[name="correoRecuperacion"]').value);
+            formData.append('contrasenaRecuperacion', newpassword.value);
+            formData.append('ConfirmarcontrasenaRecuperacion', confirmpassword.value);
+            formData.append('csrfmiddlewaretoken', document.querySelector('input[name="csrfmiddlewaretoken"]').value);
+
+            fetch("{% url 'change-password' %}", {
+                method: 'POST',
+                body: formData
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Error en la respuesta del servidor");
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    boxMessage.innerHTML = data.message;
+                })
+                .catch((error) => {
+                    boxMessage.innerHTML = error.message;
+                });
+        }
+
+    </script>
+
 
 </body>
 
