@@ -15,6 +15,8 @@ urlpatterns = [
     re_path(r'logout', views.logout, name="logout"),
     re_path(r'page2', views.views2, name="views2"),
     re_path(r'nosotros/', views.nosotros, name='nosotros'),
+    re_path(r'change-password/', views.api_change_password,
+        name='change-password')
 
 
 ]

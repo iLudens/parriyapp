@@ -6,35 +6,36 @@ import json
 from django.core.serializers.json import DjangoJSONEncoder
 from decimal import Decimal
 from .helpers import generate_slug
+from django.http import JsonResponse
+from django.contrib.auth.hashers import make_password, check_password
+from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
+
 
 
 def inicio(request):
-
-    if not 'usuario_autenticado' in request.session:
-
+    if 'usuario_autenticado' not in request.session:
         if request.method == "POST":
-
             username = request.POST.get('username')
             password = request.POST.get('password')
 
-            user = Usuario.objects.filter(
-                nombre_usuario=username, contrasena=password).exists()
+            try:
+                user = Usuario.objects.get(nombre_usuario=username)
+            except Usuario.DoesNotExist:
+                return render(request, 'inicio.html', {'error': 'Usuario o contraseña incorrecta'})
 
-            if user is not False:
-
-                usuario = Usuario.objects.filter(
-                    nombre_usuario=username, contrasena=password).values()
-
+            if check_password(password, user.contrasena):
                 request.session['usuario_autenticado'] = username
-                usuario_serializable = [{k: (float(v) if isinstance(
-                    v, Decimal) else v) for k, v in u.items()} for u in usuario]
+                usuario_serializable = {k: (float(v) if isinstance(v, Decimal) else v)
+                                        for k, v in user.__dict__.items()
+                                        if k != '_state' and k != 'contrasena'}  # Exclude certain fields
 
                 request.session['data'] = json.dumps(
                     usuario_serializable, cls=DjangoJSONEncoder)
 
                 return redirect('pagina2')
             else:
-                return render(request, 'inicio.html')
+                return render(request, 'inicio.html', {'error': 'Usuario o contraseña incorrecta'})
 
         elif request.method == "GET":
             return render(request, 'inicio.html')
@@ -152,9 +153,9 @@ def reserva(request):
     if request.method == 'POST':
         form = ResForm(request.POST, request.FILES)
         if form.is_valid():
-            
+
             form.save()
-    
+
     reservas = Reserva.objects.all()
     data = {'form': form, 'reservas': reservas}
     return render(request, 'reserva.html', data)
@@ -168,4 +169,33 @@ def endpoint_receta(request):
             return redirect('recetas')
     else:
         return render(request, 'parrilleros.html')
+
+def api_change_password(request):
+    if request.method != 'POST':
+        return JsonResponse({'error': 'Método no permitido'}, status=405)
+
+    email_recuperacion = request.POST.get('correoRecuperacion')
+    password = request.POST.get('contrasenaRecuperacion')
+    confirm_password = request.POST.get('ConfirmarcontrasenaRecuperacion')
+
+    print(password)
+    print(confirm_password)
+
+    try:
+        validate_email(email_recuperacion)
+    except ValidationError:
+        return JsonResponse({'error': 'Email inválido'}, status=400)
+
+    if password != confirm_password:
+        return JsonResponse({'error': 'Las contraseñas no coinciden'}, status=400)
+
+    try:
+        user = Usuario.objects.get(email__exact=email_recuperacion)
+    except Usuario.DoesNotExist:
+        return JsonResponse({'error': 'Usuario no existe'}, status=404)
+
+    user.contrasena = make_password(confirm_password)
+    user.save()
+
+    return JsonResponse({'message': 'Contraseña cambiada correctamente'}, status=200)
 

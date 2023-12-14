@@ -1,5 +1,6 @@
 from django import forms
 from .models import Usuario, Recetas, Parrilleros, Disponibilidad, Reserva
+from django.contrib.auth.hashers import make_password
 
 
 STATUS_CHOICES = [
@@ -24,6 +25,14 @@ class UsuarioForm(forms.ModelForm):
             'roles',
         ]
 
+    def save(self, commit=True):
+        usuario = super(UsuarioForm, self).save(commit=False)
+        # Hashear la contraseña antes de guardar
+        usuario.contrasena = make_password(self.cleaned_data['contrasena'])
+
+        if commit:
+            usuario.save()
+        return usuario
 
 class RecetaForm(forms.ModelForm):
     re_image = forms.ImageField()
@@ -89,18 +98,18 @@ class ResForm(forms.ModelForm):
     class Meta:
         model = Reserva
         fields = 'nSolicitante', 'infoReserva'
-        
+
         labels = {
                 'nSolicitante': 'Nombre Solicitante',
                 'infoReserva': 'Datos para Reservar'
 
             }
-    
+
 
     nSolicitante = forms.TextInput()
-    
+
     infoReserva = forms.ChoiceField(choices=[], required=True)
-    
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         disponibilidad = Disponibilidad.objects.filter(estado='disponible')
@@ -111,13 +120,13 @@ class ResForm(forms.ModelForm):
         reserva = super().save(commit=False)
         idDispo = self.cleaned_data['infoReserva']
         disponibilidad = Disponibilidad.objects.get(idDispo=idDispo)
-        
+
         # Guardar los campos deseados de Disponibilidad en infoReserva de Reserva
         reserva.infoReserva = f"{disponibilidad.nombre} - {disponibilidad.fechaDispo} - {disponibilidad.horario}"
 
         if commit:
             reserva.save()
-            
+
             # Actualizar el estado de la disponibilidad
             disponibilidad.estado = 'ocupado'
             disponibilidad.save()
